@@ -25,16 +25,16 @@
       <Label fx:id="lab_red" prefHeight="17.0" prefWidth="34.0" text="Red" />
       <Label fx:id="lab_green" prefHeight="17.0" prefWidth="39.0" text="Green" GridPane.rowIndex="2" />
       <Label fx:id="lab_blue" prefHeight="17.0" prefWidth="31.0" text="Blue" GridPane.rowIndex="4" />
-      <TextField fx:id="red" onAction="#colors_input" prefHeight="71.0" prefWidth="101.0" GridPane.rowIndex="1" />
-      <TextField fx:id="green" onAction="#colors_input" prefHeight="78.0" prefWidth="101.0" GridPane.rowIndex="3" />
-      <TextField fx:id="blue" onAction="#colors_input" prefHeight="71.0" prefWidth="101.0" GridPane.rowIndex="5" />
-      <Button fx:id="btn_pRed" mnemonicParsing="false" prefHeight="75.0" prefWidth="99.0" text="+10" GridPane.columnIndex="1" />
-      <Button fx:id="btn_mRed" mnemonicParsing="false" prefHeight="71.0" prefWidth="99.0" text="-10" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-      <Button fx:id="btn_pGreen" mnemonicParsing="false" prefHeight="69.0" prefWidth="99.0" text="+10" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-      <Button fx:id="btn_mGreen" mnemonicParsing="false" prefHeight="85.0" prefWidth="99.0" text="-10" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-      <Button fx:id="btn_pBlue" mnemonicParsing="false" prefHeight="77.0" prefWidth="99.0" text="+10" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-      <Button fx:id="btn_mBlue" mnemonicParsing="false" prefHeight="76.0" prefWidth="99.0" text="-10" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-      <Button fx:id="btn_color" minHeight="202.0" minWidth="200.0" mnemonicParsing="false" prefHeight="202.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+      <TextField id="red" fx:id="red" onKeyReleased="#colors_input" prefHeight="71.0" prefWidth="101.0" GridPane.rowIndex="1" />
+      <TextField id="green" fx:id="green" onKeyReleased="#colors_input" prefHeight="78.0" prefWidth="101.0" GridPane.rowIndex="3" />
+      <TextField id="blue" fx:id="blue" onKeyReleased="#colors_input" prefHeight="71.0" prefWidth="101.0" GridPane.rowIndex="5" />
+      <Button id="red" fx:id="btn_pRed" mnemonicParsing="false" onAction="#btn_relativeChangeP" prefHeight="75.0" prefWidth="99.0" text="+10" GridPane.columnIndex="1" />
+      <Button id="red" fx:id="btn_mRed" mnemonicParsing="false" onAction="#btn_relativeChangeM" prefHeight="71.0" prefWidth="99.0" text="-10" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <Button id="green" fx:id="btn_pGreen" mnemonicParsing="false" onAction="#btn_relativeChangeP" prefHeight="69.0" prefWidth="99.0" text="+10" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <Button id="green" fx:id="btn_mGreen" mnemonicParsing="false" onAction="#btn_relativeChangeM" prefHeight="85.0" prefWidth="99.0" text="-10" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      <Button id="blue" fx:id="btn_pBlue" mnemonicParsing="false" onAction="#btn_relativeChangeP" prefHeight="77.0" prefWidth="99.0" text="+10" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+      <Button id="blue" fx:id="btn_mBlue" mnemonicParsing="false" onAction="#btn_relativeChangeM" prefHeight="76.0" prefWidth="99.0" text="-10" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+      <Button fx:id="btn_color" minHeight="202.0" minWidth="200.0" mnemonicParsing="false" onMouseClicked="#update_color" prefHeight="202.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
       <Label fx:id="lab_hex" GridPane.columnIndex="2" GridPane.rowIndex="4" />
    </children>
 </GridPane>

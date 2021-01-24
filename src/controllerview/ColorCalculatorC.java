@@ -1,11 +1,14 @@
 package controllerview;
 
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.Background;
+import javafx.scene.paint.Color;
 import model.ColorCalculator;
 import model.ModularCounter;
 
@@ -15,46 +18,52 @@ import java.util.ResourceBundle;
 public class ColorCalculatorC implements Initializable {
 
     @FXML
-    private static Label lab_red;
+    private Label lab_hex;
     @FXML
-    private static Label lab_green;
-    @FXML
-    private static Label lab_blue;
-    @FXML
-    private static Label lab_hex;
-    @FXML
-    private static TextField red;
-    @FXML
-    private static TextField green;
-    @FXML
-    private static TextField blue;
-    @FXML
-    private static Button btn_color;
-    @FXML
-    private static Button btn_pRed;
-    @FXML
-    private static Button btn_pGreen;
-    @FXML
-    private static Button btn_pBlue;
-    @FXML
-    private static Button btn_mRed;
-    @FXML
-    private static Button btn_mGreen;
-    @FXML
-    private static Button btn_mBlue;
+    private Button btn_color;
 
-    private ModularCounter red1 = new ModularCounter(0,255);
-    private ModularCounter green1 = new ModularCounter(0,255);
-    private ModularCounter blue1 = new ModularCounter(0,255);
+    private ColorCalculator calc = new ColorCalculator();
 
-    ColorCalculator cc = new ColorCalculator(red1,green1,blue1);
+    /*private ModularCounter red = new ModularCounter(0,255);
+    private ModularCounter green = new ModularCounter(0,255);
+    private ModularCounter blue = new ModularCounter(0,255);
 
-    public void colors_input(KeyEvent event)
+    ColorCalculator cc = new ColorCalculator(red,green,blue);*/
+
+    @FXML
+    private void colors_input(KeyEvent event)
     {
-        TextField txt = (TextField)event.getSource();
-        cc.changeColorViaAbsoluteValue(txt.getId(),txt.getText());
+        TextField txt = (TextField) event.getSource();
+        calc.changeColorViaAbsoluteValue(txt.getId(),txt.getText());
+        String hexcode = calc.getHex();
+        btn_color.setStyle("-fx-background-color: " + hexcode + ";");
+        lab_hex.setText(hexcode);
+    }
 
-        cc.toString();
+    @FXML
+    private void btn_relativeChangeP(Event event)
+    {
+        Button btn = (Button)event.getSource();
+        calc.changeColorViaRelativeValue(btn.getId(),10,"+");
+        String hexcode = calc.getHex();
+        btn_color.setStyle("-fx-background-color: " + hexcode + ";");
+        lab_hex.setText(hexcode);
+    }
+
+    @FXML
+    public void btn_relativeChangeM(Event event)
+    {
+        Button btn = (Button)event.getSource();
+        calc.changeColorViaRelativeValue(btn.getId(),10,"-");
+        String hexcode = calc.getHex();
+        btn_color.setStyle("-fx-background-color: " + hexcode + ";");
+        lab_hex.setText(hexcode);
+    }
+
+    @FXML
+    public void update_color(Event event)
+    {
+        btn_color.setStyle("-fx-background-color: " + calc.getHex() + ";");
     }
 
     @Override

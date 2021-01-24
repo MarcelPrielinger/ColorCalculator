@@ -64,13 +64,10 @@ public class ColorCalculator {
         System.out.println("4 - Beenden");
     }
 
-    public ColorCalculator(ModularCounter red, ModularCounter green, ModularCounter blue) {
-        ColorCalculator.red = red;
-        ColorCalculator.green = green;
-        ColorCalculator.blue = blue;
+    public ColorCalculator() {
     }
 
-    public void changeColorViaAbsoluteValue(String color, String value)
+    public static void changeColorViaAbsoluteValue(String color, String value)
     {
         if(color.equals("red"))
         {
@@ -127,7 +124,7 @@ public class ColorCalculator {
     }
 
 
-    public void changeColorViaRelativeValue(String color, String value,String op)
+    public static void changeColorViaRelativeValue(String color, String value,String op)
     {
         if(color.equals("red"))
         {
@@ -227,35 +224,6 @@ public class ColorCalculator {
         hex += blueValue;
 
         return hex;
-    }
-
-    public String getHex1()
-    {
-        String hex = "#";
-
-        String redValue = Integer.toHexString(red.getValue());
-        String greenValue = Integer.toHexString(green.getValue());
-        String blueValue = Integer.toHexString(blue.getValue());
-
-        if (redValue.length() == 1)
-            redValue = "0" + redValue;
-        if (greenValue.length() == 1)
-            greenValue = "0" + greenValue;
-        if (blueValue.length() == 1)
-            blueValue="0" + blueValue;
-        hex += redValue;
-        hex += greenValue;
-        hex += blueValue;
-
-        return hex;
-    }
-
-    @Override
-    public String toString() {
-        return "Red = " + red.getValue() + "\n" +
-                "Green = " + green.getValue() + "\n" +
-                "Blue = " + blue.getValue() + "\n" +
-                "Hex = " + getHex();
     }
 
     public static String print() {
