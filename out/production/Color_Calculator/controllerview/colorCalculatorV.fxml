@@ -25,9 +25,9 @@
       <Label fx:id="lab_red" prefHeight="17.0" prefWidth="34.0" text="Red" />
       <Label fx:id="lab_green" prefHeight="17.0" prefWidth="39.0" text="Green" GridPane.rowIndex="2" />
       <Label fx:id="lab_blue" prefHeight="17.0" prefWidth="31.0" text="Blue" GridPane.rowIndex="4" />
-      <TextField fx:id="txt_red" prefHeight="71.0" prefWidth="101.0" GridPane.rowIndex="1" />
-      <TextField fx:id="txt_green" prefHeight="78.0" prefWidth="101.0" GridPane.rowIndex="3" />
-      <TextField fx:id="txt_blue" prefHeight="71.0" prefWidth="101.0" GridPane.rowIndex="5" />
+      <TextField fx:id="red" onAction="#colors_input" prefHeight="71.0" prefWidth="101.0" GridPane.rowIndex="1" />
+      <TextField fx:id="green" onAction="#colors_input" prefHeight="78.0" prefWidth="101.0" GridPane.rowIndex="3" />
+      <TextField fx:id="blue" onAction="#colors_input" prefHeight="71.0" prefWidth="101.0" GridPane.rowIndex="5" />
       <Button fx:id="btn_pRed" mnemonicParsing="false" prefHeight="75.0" prefWidth="99.0" text="+10" GridPane.columnIndex="1" />
       <Button fx:id="btn_mRed" mnemonicParsing="false" prefHeight="71.0" prefWidth="99.0" text="-10" GridPane.columnIndex="1" GridPane.rowIndex="1" />
       <Button fx:id="btn_pGreen" mnemonicParsing="false" prefHeight="69.0" prefWidth="99.0" text="+10" GridPane.columnIndex="1" GridPane.rowIndex="2" />

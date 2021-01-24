@@ -1,40 +1,65 @@
 package controllerview;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
+import model.ColorCalculator;
+import model.ModularCounter;
 
-public class ColorCalculatorC {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class ColorCalculatorC implements Initializable {
 
     @FXML
-    private Label lab_red;
+    private static Label lab_red;
     @FXML
-    private Label lab_green;
+    private static Label lab_green;
     @FXML
-    private Label lab_blue;
+    private static Label lab_blue;
     @FXML
-    private Label lab_hex;
+    private static Label lab_hex;
     @FXML
-    private TextField txt_red;
+    private static TextField red;
     @FXML
-    private TextField txt_green;
+    private static TextField green;
     @FXML
-    private TextField txt_blue;
+    private static TextField blue;
     @FXML
-    private Button btn_color;
+    private static Button btn_color;
     @FXML
-    private Button btn_pRed;
+    private static Button btn_pRed;
     @FXML
-    private Button btn_pGreen;
+    private static Button btn_pGreen;
     @FXML
-    private Button btn_pBlue;
+    private static Button btn_pBlue;
     @FXML
-    private Button btn_mRed;
+    private static Button btn_mRed;
     @FXML
-    private Button btn_mGreen;
+    private static Button btn_mGreen;
     @FXML
-    private Button btn_mBlue;
+    private static Button btn_mBlue;
 
+    private ModularCounter red1 = new ModularCounter(0,255);
+    private ModularCounter green1 = new ModularCounter(0,255);
+    private ModularCounter blue1 = new ModularCounter(0,255);
+
+    ColorCalculator cc = new ColorCalculator(red1,green1,blue1);
+
+    public void colors_input(KeyEvent event)
+    {
+        TextField txt = (TextField)event.getSource();
+        cc.changeColorViaAbsoluteValue(txt.getId(),txt.getText());
+
+        cc.toString();
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    }
 
 }
