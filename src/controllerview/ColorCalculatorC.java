@@ -21,6 +21,13 @@ public class ColorCalculatorC implements Initializable {
     private Label lab_hex;
     @FXML
     private Button btn_color;
+    @FXML
+    private TextField red;
+    @FXML
+    private TextField green;
+    @FXML
+    private TextField blue;
+
 
     private ColorCalculator calc = new ColorCalculator();
 
@@ -33,11 +40,17 @@ public class ColorCalculatorC implements Initializable {
     @FXML
     private void colors_input(KeyEvent event)
     {
-        TextField txt = (TextField) event.getSource();
-        calc.changeColorViaAbsoluteValue(txt.getId(),txt.getText());
-        String hexcode = calc.getHex();
-        btn_color.setStyle("-fx-background-color: " + hexcode + ";");
-        lab_hex.setText(hexcode);
+        try {
+            TextField txt = (TextField) event.getSource();
+            calc.changeColorViaAbsoluteValue(txt.getId(), txt.getText());
+            String hexcode = calc.getHex();
+            btn_color.setStyle("-fx-background-color: " + hexcode + ";");
+            lab_hex.setText(hexcode);
+        }
+        catch (Exception e)
+        {
+            System.out.println("Error");
+        }
     }
 
     @FXML
@@ -46,6 +59,7 @@ public class ColorCalculatorC implements Initializable {
         Button btn = (Button)event.getSource();
         calc.changeColorViaRelativeValue(btn.getId(),10,"+");
         String hexcode = calc.getHex();
+        update_numbers();
         btn_color.setStyle("-fx-background-color: " + hexcode + ";");
         lab_hex.setText(hexcode);
     }
@@ -56,19 +70,21 @@ public class ColorCalculatorC implements Initializable {
         Button btn = (Button)event.getSource();
         calc.changeColorViaRelativeValue(btn.getId(),10,"-");
         String hexcode = calc.getHex();
+        update_numbers();
         btn_color.setStyle("-fx-background-color: " + hexcode + ";");
         lab_hex.setText(hexcode);
-    }
-
-    @FXML
-    public void update_color(Event event)
-    {
-        btn_color.setStyle("-fx-background-color: " + calc.getHex() + ";");
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+    }
+
+    public void update_numbers()
+    {
+        red.setText(String.valueOf(calc.getRed().getValue()));
+        green.setText(String.valueOf(calc.getGreen().getValue()));
+        blue.setText(String.valueOf(calc.getBlue().getValue()));
     }
 
 }

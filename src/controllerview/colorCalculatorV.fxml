@@ -34,7 +34,7 @@
       <Button id="green" fx:id="btn_mGreen" mnemonicParsing="false" onAction="#btn_relativeChangeM" prefHeight="85.0" prefWidth="99.0" text="-10" GridPane.columnIndex="1" GridPane.rowIndex="3" />
       <Button id="blue" fx:id="btn_pBlue" mnemonicParsing="false" onAction="#btn_relativeChangeP" prefHeight="77.0" prefWidth="99.0" text="+10" GridPane.columnIndex="1" GridPane.rowIndex="4" />
       <Button id="blue" fx:id="btn_mBlue" mnemonicParsing="false" onAction="#btn_relativeChangeM" prefHeight="76.0" prefWidth="99.0" text="-10" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-      <Button fx:id="btn_color" minHeight="202.0" minWidth="200.0" mnemonicParsing="false" onMouseClicked="#update_color" prefHeight="202.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+      <Button fx:id="btn_color" minHeight="202.0" minWidth="200.0" mnemonicParsing="false" prefHeight="202.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
       <Label fx:id="lab_hex" GridPane.columnIndex="2" GridPane.rowIndex="4" />
    </children>
 </GridPane>
